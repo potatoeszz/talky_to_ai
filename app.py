@@ -1,5 +1,6 @@
 import speech_recognition as sr
 from tts import speak
+from chat import chat
 
 r = sr.Recognizer()
 mic = sr.Microphone()
@@ -26,6 +27,7 @@ def askAI(lang="en_US"):
         elif text.lower() in byeWords:
             speak("Bye!")
             break
-        speak("You just said: " + text)
+        aiResp = chat(text)
+        speak(aiResp)
 
 askAI()
